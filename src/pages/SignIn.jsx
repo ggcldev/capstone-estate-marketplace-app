@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-// import { ReactComponent as ArrowRightIcon } from '../assets/svg/kbArrowRightIcon.svg'
-// import { ReactComponent as visibilityIcon } from '../assets/svg/visibleIcon.svg'
+import { ReactComponent as ArrowRightIcon } from '../assets/svg/kbArrowRightIcon.svg'
 import visibilityIcon from '../assets/svg/visibleIcon.svg'
 
 function SignIn() {
@@ -15,7 +14,16 @@ function SignIn() {
   const { email, password } = formData
 
   const navigate = useNavigate()
-  const onChange = () => {}
+
+  // * Update for data state if input
+  const onChange = (e) => {
+    // * Set a perimeter to return an object ...
+    // * Target id for email or password that called on formData (email, password)
+    setFormData((prevState) => ({
+      ...prevState,
+      [e.target.id]: e.target.value,
+    }))
+  }
 
   return (
     <>
@@ -43,7 +51,7 @@ function SignIn() {
               value={password}
               onChange={onChange}
             />
-
+            {/* Show password image */}
             <img
               src={visibilityIcon}
               alt='show password'
@@ -51,7 +59,22 @@ function SignIn() {
               onClick={() => setShowPassword((prevState) => !prevState)}
             />
           </div>
+          {/* Forgot password route */}
+          <Link to='/forgot-password' className='forgotPasswordLink'>
+            Forgot Password
+          </Link>
+          <div className='signInBar'>
+            <p className='signInText'>Sign In</p>
+            <button className='signInButton'>
+              <ArrowRightIcon fill='#ffff' width='34px' height='34px' />
+            </button>
+          </div>
         </form>
+
+        {/* Google Sign - in route*/}
+        <Link to='/sign-up' className='registerLink'>
+          Sign up Instead
+        </Link>
       </div>
     </>
   )

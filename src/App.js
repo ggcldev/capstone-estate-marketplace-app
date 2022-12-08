@@ -13,12 +13,12 @@ function App() {
       <Router>
         <Routes>
           // * - Creating Pages Route
-          <Route path='/' element={<Discover />}></Route>
-          <Route path='/sales' element={<Sales />}></Route>
-          <Route path='/profile' element={<SignIn />}></Route>
-          <Route path='/sign-in' element={<SignIn />}></Route>
-          <Route path='/sign-up' element={<SignUp />}></Route>
-          <Route path='/forgot-password' element={<ForgotPassword />}></Route>
+          <Route path='/' element={<Discover />} />
+          <Route path='/sales' element={<Sales />} />
+          <Route path='/profile' element={<SignIn />} />
+          <Route path='/sign-in' element={<SignIn />} />
+          <Route path='/sign-up' element={<SignUp />} />
+          <Route path='/forgot-password' element={<ForgotPassword />} />
         </Routes>
         <Navbar />
       </Router>
