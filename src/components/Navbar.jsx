@@ -26,6 +26,7 @@ function Navbar() {
               width='36px'
               height='36px'
             />
+            {/* Added function for checking active */}
             <p
               className={
                 pathRouteMatch('/')
@@ -42,6 +43,7 @@ function Navbar() {
               width='36px'
               height='36px'
             />
+            {/* Added function for checking active */}
             <p
               className={
                 pathRouteMatch('/sales')
@@ -58,6 +60,7 @@ function Navbar() {
               width='36px'
               height='36px'
             />
+            {/* Added function for checking active */}
             <p
               className={
                 pathRouteMatch('/profile')
