@@ -36,20 +36,19 @@ function SignIn() {
           {/* Password input */}
           <div className='passwordInputDiv'>
             <input
-              // if show password is true return text input else password
               type={showPassword ? 'text' : 'password'}
               className='passwordInput'
               placeholder='Password'
               id='password'
               value={password}
-              onChange={(e) => setShowPassword(e.target.value)}
+              onChange={onChange}
             />
 
             <img
               src={visibilityIcon}
-              alt='visibleIcon'
+              alt='show password'
               className='showPassword'
-              onClick={() => setShowPassword()}
+              onClick={() => setShowPassword((prevState) => !prevState)}
             />
           </div>
         </form>
