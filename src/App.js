@@ -15,7 +15,7 @@ function App() {
           // * - Creating Pages Route
           <Route path='/' element={<Discover />} />
           <Route path='/sales' element={<Sales />} />
-          <Route path='/profile' element={<SignIn />} />
+          <Route path='/profile' element={<Profile />} />
           <Route path='/sign-in' element={<SignIn />} />
           <Route path='/sign-up' element={<SignUp />} />
           <Route path='/forgot-password' element={<ForgotPassword />} />
