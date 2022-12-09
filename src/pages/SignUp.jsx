@@ -5,6 +5,7 @@ import {
   createUserWithEmailAndPassword,
   updateProfile,
 } from 'firebase/auth'
+import { setDoc, doc, serverTimestamp } from 'firebase/firestore'
 import { db } from '../firebase.config'
 import { ReactComponent as ArrowRightIcon } from '../assets/svg/kbArrowRightIcon.svg'
 import visibilityIcon from '../assets/svg/visibleIcon.svg'
@@ -32,29 +33,39 @@ function SignUp() {
     }))
   }
 
+  // * Process for submitting the form
   const onSubmit = async (e) => {
     e.preventDefault()
 
     try {
+      // ! Firebase authenticate
       const auth = getAuth()
-
+      // ! Get input from user - name, email, password
       const userCredential = await createUserWithEmailAndPassword(
         auth,
         email,
         password
       )
-
+      // ! Store in a variable
       const user = userCredential.user
 
       updateProfile(auth.currentUser, {
         displayName: name,
       })
 
+      // ! Copy all input data save to variable
+      const formDataCopy = { ...formData }
+      delete formDataCopy.password
+      formDataCopy.timestamp = serverTimestamp()
+
+      await setDoc(doc(db, 'users', user.uid), formDataCopy)
+
       navigate('/')
     } catch (error) {
       console.log(error)
     }
   }
+
   return (
     <>
       <div className='pageContainer'>
