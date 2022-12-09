@@ -1,9 +1,9 @@
 import { useState } from 'react'
+import { toast } from 'react-toastify'
 import { Link, useNavigate } from 'react-router-dom'
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
 import { ReactComponent as ArrowRightIcon } from '../assets/svg/kbArrowRightIcon.svg'
 import visibilityIcon from '../assets/svg/visibleIcon.svg'
-import { async } from '@firebase/util'
 
 function SignIn() {
   // * State for email and data
@@ -43,7 +43,7 @@ function SignIn() {
         navigate('/')
       }
     } catch (error) {
-      console.log(error)
+      toast.error('Wrong User Credentials')
     }
   }
 
