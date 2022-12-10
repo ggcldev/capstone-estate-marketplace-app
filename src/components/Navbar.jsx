@@ -51,7 +51,7 @@ function Navbar() {
                   : 'navbarListItemName'
               }
             >
-              Sale
+              Limited
             </p>
           </li>
           <li className='navbarListItem' onClick={() => navigate('/profile')}>
