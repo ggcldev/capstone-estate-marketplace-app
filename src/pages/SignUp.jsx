@@ -10,6 +10,7 @@ import { setDoc, doc, serverTimestamp } from 'firebase/firestore'
 import { db } from '../firebase.config'
 import { ReactComponent as ArrowRightIcon } from '../assets/svg/kbArrowRightIcon.svg'
 import visibilityIcon from '../assets/svg/visibleIcon.svg'
+import GoogleOAuth from '../components/GoogleOAuth'
 
 function SignUp() {
   // * State for email and data
@@ -121,7 +122,7 @@ function SignUp() {
           </div>
         </form>
 
-        {/* Google Sign - in route*/}
+        <GoogleOAuth />
         <Link to='/sign-in' className='registerLink'>
           Sign In Instead
         </Link>
