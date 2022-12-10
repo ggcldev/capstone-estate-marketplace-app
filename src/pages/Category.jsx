@@ -11,6 +11,7 @@ import {
 import { db } from '../firebase.config'
 import { toast } from 'react-toastify'
 import Spinner from '../components/Spinner'
+import ListingObject from '../components/ListingObject'
 
 function Category() {
   const [listings, setListings] = useState(null)
@@ -34,13 +35,14 @@ function Category() {
         const queryData = await getDocs(qry)
 
         const listings = []
-
+        // ! Return data from query input
         queryData.forEach((doc) => {
           return listings.push({
             id: doc.id,
             data: doc.data(),
           })
         })
+        // ! Set loading to false if listings is displayed
         setListings(listings)
         setLoading(false)
       } catch (error) {
@@ -50,6 +52,7 @@ function Category() {
 
     fetchListings()
   }, [params.categoryPart])
+
   return (
     <div className='category'>
       <header>
@@ -59,6 +62,8 @@ function Category() {
             : 'Places for sale'}
         </p>
       </header>
+
+      {/* While loading, will get all listings depending on the DB and will display data */}
       {loading ? (
         <Spinner />
       ) : listings && listings.length > 0 ? (
@@ -66,7 +71,11 @@ function Category() {
           <main>
             <ul className='categoryListings'>
               {listings.map((listing) => (
-                <h3 key={listing.id}>{listing.data.name}</h3>
+                <ListingObject
+                  listing={listing.data}
+                  id={listing.id}
+                  key={listing.id}
+                />
               ))}
             </ul>
           </main>
