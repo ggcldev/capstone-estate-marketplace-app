@@ -91,7 +91,7 @@ button {
 .profile,
 .listingDetails,
 .category,
-.explore {
+.discover {
   margin: 1rem;
 }
 @media (min-width: 1024px) {
@@ -100,7 +100,7 @@ button {
   .profile,
   .listingDetails,
   .category,
-  .explore {
+  .discover {
     margin: 3rem;
   }
 }
@@ -302,22 +302,22 @@ button {
 }
 
 @media (min-width: 1217px) {
-  .explore {
+  .discover {
     margin-bottom: 10rem;
   }
 }
 @media (max-height: 536px) {
-  .explore {
+  .discover {
     margin-bottom: 10rem;
   }
 }
 
-.exploreHeading,
-.exploreCategoryHeading {
+.discoverHeading,
+.discoverCategoryHeading {
   font-weight: 700;
 }
 
-.exploreCategoryHeading {
+.discoverCategoryHeading {
   margin-top: 3rem;
 }
 
@@ -375,15 +375,15 @@ button {
   }
 }
 
-.exploreCategories {
+.discoverCategories {
   display: flex;
   justify-content: space-between;
 }
-.exploreCategories a {
+.discoverCategories a {
   width: 48%;
 }
 
-.exploreCategoryImg {
+.discoverCategoryImg {
   min-height: 115px;
   height: 15vw;
   width: 100%;
@@ -392,7 +392,7 @@ button {
   margin: 0 auto;
 }
 
-.exploreCategoryName {
+.discoverCategoryName {
   font-weight: 500;
   text-align: left;
 }

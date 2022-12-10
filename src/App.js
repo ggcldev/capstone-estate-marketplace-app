@@ -7,6 +7,7 @@ import Discover from './pages/Discover'
 import ForgotPassword from './pages/ForgotPassword'
 import Profile from './pages/Profile'
 import Sales from './pages/Sales'
+import Category from './pages/Category'
 import SignIn from './pages/SignIn'
 import SignUp from './pages/SignUp'
 
@@ -18,6 +19,7 @@ function App() {
           {/* Pages Route */}
           <Route path='/' element={<Discover />} />
           <Route path='/sales' element={<Sales />} />
+          <Route path='/category/:categoryPart' element={<Category />} />
           <Route path='/profile' element={<ProtectedRoute />}>
             <Route path='/profile' element={<Profile />} />
           </Route>
