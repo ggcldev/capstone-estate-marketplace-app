@@ -20,7 +20,7 @@ function Discover() {
             />
             <h3 className='discoverCategoryName'>Places for rent</h3>
           </Link>
-          <Link to='/category/sell'>
+          <Link to='/category/sale'>
             <img
               src={saleCategoryImg}
               alt='Sell'
