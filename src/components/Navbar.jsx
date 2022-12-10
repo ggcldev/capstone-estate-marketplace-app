@@ -11,7 +11,7 @@ function Navbar() {
   // * Conditional if route is selected, will show highlight and other will be light
   // * Added to each page route /*
   const pathRouteMatch = (route) => {
-    if (route == location.pathname) {
+    if (route === location.pathname) {
       return true
     }
   }
