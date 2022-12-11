@@ -7,13 +7,17 @@ import Spinner from '../components/Spinner'
 import shareIcon from '../assets/svg/shareIcon.svg'
 import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
 
+// import Swiper core and required modules
+import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper'
+
+import { Swiper, SwiperSlide } from 'swiper/react'
+
 // Import Swiper styles
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import 'swiper/css/scrollbar'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper'
+
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y])
 
 function Listings() {
