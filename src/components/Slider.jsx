@@ -57,7 +57,10 @@ function Slider() {
           scrollbar={{ draggable: true }}
         >
           {listings.map(({ data, id }) => (
-            <SwiperSlide key={id}>
+            <SwiperSlide
+              key={id}
+              onClick={() => navigate(`/category/${data.type}/${id}`)}
+            >
               <div
                 style={{
                   background: `url(${data.imgUrls[0]}) center no-repeat`,
