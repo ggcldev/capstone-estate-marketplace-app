@@ -99,6 +99,7 @@ function CreateNewListing() {
       // ! If no return, set to 0 for longitude
       geolocation.lng = data.results[0]?.geometry.location.lng ?? 0
       // ! If location is not accessible for geolocation; ZERO_RESULTS
+      // ! Display the format showing in Google geolocation
       location =
         data.status === 'ZERO_RESULTS'
           ? undefined
@@ -112,7 +113,6 @@ function CreateNewListing() {
     } else {
       geolocation.lat = latitude
       geolocation.lng = longitude
-      location = address
     }
 
     // ! Function to store image
@@ -178,9 +178,10 @@ function CreateNewListing() {
       timestamp: serverTimestamp(),
     }
 
+    // ! Display street name from geolocation
+    formDataCopy.location = address
     delete formDataCopy.images
     delete formDataCopy.address
-    location && (formDataCopy.location = location)
     !formDataCopy.offer && delete formDataCopy.discountedPrice
     // ! Added await to upload the listing from DB using the formData
     const docRef = await addDoc(collection(db, 'listings'), formDataCopy)
