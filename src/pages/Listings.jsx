@@ -97,7 +97,7 @@ function Listings() {
         {/* Check if user is not signed in and nor it's listing, able to send a contact form */}
         {auth.currentUser?.uid !== listing.userRef && (
           <Link
-            to={`/contact/${listing.userRef}?listingName=${listing.name}&listingLocation=${listing.location}`}
+            to={`/contact/${listing.userRef}?listingName=${listing.name}`}
             className='primaryButton'
           >
             Contact Property Owner / Agent

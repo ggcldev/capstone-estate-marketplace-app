@@ -12,6 +12,7 @@ import SignIn from './pages/SignIn'
 import SignUp from './pages/SignUp'
 import CreateNewListing from './pages/CreateNewListing'
 import Listings from './pages/Listings'
+import ContactForm from './pages/ContactForm'
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
             path='/category/:categoryName/:listingId'
             element={<Listings />}
           ></Route>
+          <Route path='/contact/:landlordId' element={<ContactForm />}></Route>
         </Routes>
         <Navbar />
       </Router>
