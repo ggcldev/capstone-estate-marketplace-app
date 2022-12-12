@@ -2,11 +2,13 @@ import { Link } from 'react-router-dom'
 import rentCategoryImg from '../assets/jpg/rentCat.jpg'
 import saleCategoryImg from '../assets/jpg/saleCat.jpg'
 import Slider from '../components/Slider'
+import Hero from '../components/Hero/Hero'
 
 function Discover() {
   return (
     <div className='discover'>
       <header>
+        <Hero />
         <p className='pageHeader'>Discover</p>
       </header>
 
