@@ -13,7 +13,6 @@ function Discover() {
       </header>
 
       <main>
-        <Slider />
         <h2 className='discoverCategoryHeading'>Categories</h2>
         <div className='discoverCategories'>
           <Link to='/category/rent'>
@@ -22,7 +21,9 @@ function Discover() {
               alt='Rent'
               className='discoverCategoryImg'
             />
-            <h3 className='discoverCategoryName'>Places for rent</h3>
+            <h3 className='discoverCategoryName'>
+              Looking for a place to stay?
+            </h3>
           </Link>
           <Link to='/category/sale'>
             <img
@@ -30,9 +31,10 @@ function Discover() {
               alt='Sell'
               className='discoverCategoryImg'
             />
-            <h3 className='discoverCategoryName'>Places for sale</h3>
+            <h3 className='discoverCategoryName'>Find your next home?</h3>
           </Link>
         </div>
+        <Slider />
       </main>
     </div>
   )
