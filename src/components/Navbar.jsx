@@ -2,7 +2,7 @@ import { useNavigate, useLocation } from 'react-router-dom'
 import { ReactComponent as SaleIcon } from '../assets/svg/saleOfferIcon.svg'
 import { ReactComponent as DiscoverIcon } from '../assets/svg/discoverIcon.svg'
 import { ReactComponent as PersonOutlineIcon } from '../assets/svg/personOutlineIcon.svg'
-
+import { ReactComponent as SearchIcon } from '../assets/svg/searchIcon-48.svg'
 function Navbar() {
   // * Initiatilize {hooks} for navigation
   const navigate = useNavigate()
@@ -52,6 +52,23 @@ function Navbar() {
               }
             >
               Limited
+            </p>
+          </li>
+          <li className='navbarListItem' onClick={() => navigate('/')}>
+            <SearchIcon
+              fill={pathRouteMatch('/') ? '#8f8f8f' : '#8f8f8f'}
+              width='36px'
+              height='36px'
+            />
+            {/* Added function for checking active */}
+            <p
+              className={
+                pathRouteMatch('/')
+                  ? 'navbarListItemNameActive'
+                  : 'navbarListItemName'
+              }
+            >
+              Search
             </p>
           </li>
           <li className='navbarListItem' onClick={() => navigate('/profile')}>
