@@ -40,6 +40,11 @@ function Slider() {
     return <Spinner />
   }
 
+  // ! Add condition if there's no listing available will return null
+  if (listings.length === 0) {
+    return <></>
+  }
+
   if (listings.length === 0) {
     return <></>
   }
