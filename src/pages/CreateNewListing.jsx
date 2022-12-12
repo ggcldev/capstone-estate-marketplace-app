@@ -261,8 +261,7 @@ function CreateNewListing() {
             id='name'
             value={name}
             onChange={onMutate}
-            maxLength='32'
-            minLength='10'
+            maxLength='100'
             required
           />
           <div className='formRooms flex'>

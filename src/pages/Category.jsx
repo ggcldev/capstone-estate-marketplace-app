@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+
 import {
   collection,
   getDocs,
@@ -7,15 +8,21 @@ import {
   where,
   orderBy,
   limit,
+  startAfter,
 } from 'firebase/firestore'
 import { db } from '../firebase.config'
+
 import { toast } from 'react-toastify'
+
 import Spinner from '../components/Spinner'
+
 import ListingObject from '../components/ListingObject'
 
 function Category() {
+  // ! State for getting listing in DB, fetching and loading
   const [listings, setListings] = useState(null)
   const [loading, setLoading] = useState(true)
+  const [lastFetchedListing, setLastFetchedListing] = useState(null)
 
   const params = useParams()
 
@@ -29,10 +36,13 @@ function Category() {
           listingRef,
           where('type', '==', params.categoryPart),
           orderBy('timestamp', 'desc'),
-          limit(10)
+          limit(5)
         )
         // ! Execute query from input
         const queryData = await getDocs(qry)
+        // ! Get the length stored in Data for listings
+        const lastFetchVisible = queryData.docs[queryData.docs.length - 1]
+        setLastFetchedListing(lastFetchVisible)
 
         const listings = []
         // ! Return data from query input
@@ -52,6 +62,42 @@ function Category() {
 
     fetchListings()
   }, [params.categoryPart])
+
+  // ! Paginator for load more - fetch listings
+  const fetchMoreListings = async () => {
+    try {
+      // ! Fetch reference from DB (Firebase)
+      const listingRef = collection(db, 'listings')
+      // ! Create a request - query that will take from fetching Ref
+      const qry = query(
+        listingRef,
+        where('type', '==', params.categoryPart),
+        orderBy('timestamp', 'desc'),
+        startAfter(lastFetchedListing),
+        limit(10)
+      )
+      // ! Execute query from input
+      const queryData = await getDocs(qry)
+      // ! Get the length stored in Data for listings
+      const lastFetchVisible = queryData.docs[queryData.docs.length - 1]
+      setLastFetchedListing(lastFetchVisible)
+
+      const listings = []
+      // ! Return data from query input
+      queryData.forEach((doc) => {
+        return listings.push({
+          id: doc.id,
+          data: doc.data(),
+        })
+      })
+
+      // ! Display previous listing and the new listings
+      setListings((prevState) => [...prevState, ...listings])
+      setLoading(false)
+    } catch (error) {
+      toast.error('Could not fetch any listings')
+    }
+  }
 
   return (
     <div className='category'>
@@ -79,6 +125,14 @@ function Category() {
               ))}
             </ul>
           </main>
+          <br />
+          <br />
+          {/* Button for fetch listing */}
+          {lastFetchedListing && (
+            <p className='loadMore' onClick={fetchMoreListings}>
+              Load More
+            </p>
+          )}
         </>
       ) : (
         <p>No listings for {params.categoryPart}</p>
