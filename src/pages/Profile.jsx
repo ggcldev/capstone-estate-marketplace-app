@@ -112,7 +112,7 @@ function Profile() {
     }
   }
   // ! Function for Edit
-  const onEdit = () => {}
+  const onEdit = (listingId) => navigate(`/edit-listing/${listingId}`)
 
   // ! display user name if login
   return (
