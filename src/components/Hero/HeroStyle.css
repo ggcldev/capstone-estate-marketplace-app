@@ -18,13 +18,15 @@
   top: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
+  overflow: hidden;
 }
 
 .h1-hero {
-  font-size: 2.1rem;
+  font-size: 1.8rem;
   color: #fff;
 }
 
 .h2-hero {
+  font-size: 1rem;
   color: #fff;
 }
