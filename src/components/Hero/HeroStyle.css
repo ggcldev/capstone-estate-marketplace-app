@@ -1,4 +1,4 @@
-.hero {
+/* .hero {
   height: 90vh;
   max-width: 100%;
   width: auto;
@@ -28,4 +28,40 @@
 .h2-hero {
   font-size: 1rem;
   color: #fff;
+} */
+
+.hero {
+  height: 90vh;
+  max-width: 100%;
+  width: auto;
+  background-image: linear-gradient(
+      rgba(34, 34, 34, 0.6),
+      rgba(34, 34, 34, 0.6)
+    ),
+    url(https://images.unsplash.com/photo-1524813686514-a57563d77965?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80);
+  background-size: contain;
+  overflow-y: hidden;
+}
+
+.hero-container {
+  display: flex-col;
+  align-items: center;
+  justify-content: center;
+}
+
+.h1-hero {
+  font-size: 2rem;
+  color: #fff;
+}
+
+.h2-hero {
+  font-size: 1rem;
+  color: #fff;
+}
+
+.hero-heading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
